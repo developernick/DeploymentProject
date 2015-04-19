@@ -1,8 +1,8 @@
 require 'bundler'
-Bundle.require()
+Bundler.require()
 
 ActiveRecord::Base.establish_connection(
-  :adapter => 'postgesql'
+  :adapter => 'postgresql',
   :database => 'things_to_stuff'
 )
             # ***Models***
