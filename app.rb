@@ -5,9 +5,12 @@ ActiveRecord::Base.establish_connection(
   :adapter => 'postgresql',
   :database => 'things_to_stuff'
 )
-            # ***Models***
+# ----------------***Models***
 require './models/user'
-#           ***Routing***
+
+
+
+# ---------------***Routing***
 get '/' do
   erb :index
 end
@@ -33,6 +36,7 @@ post'/api/users/:id' do
   user.create(params[:user])
   user.to_json
 end
+
 # -------------Update User
 patch '/api/users/:id' do
   content_type :json
@@ -41,6 +45,7 @@ patch '/api/users/:id' do
   user.to_json
 end
 
+# --------------Delete User
 delete '/api/users/:id' do
   content_type :json
   user = User.delete(params[:id].to_i)
